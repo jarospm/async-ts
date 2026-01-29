@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsx src/index.ts",
-    "cb": "tsx src/callbacks.ts"
+    "cb": "tsx src/callbacks.ts",
+    "types": "tsx src/types.ts"
   },
   "devDependencies": {
     "@types/node": "^25.0.10",
