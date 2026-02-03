@@ -7,7 +7,8 @@
     "build": "tsc",
     "dev": "tsx src/index.ts",
     "cb": "tsx src/callbacks.ts",
-    "types": "tsx src/types.ts"
+    "types": "tsx src/types.ts",
+    "td": "tsx src/todo-app.ts"
   },
   "devDependencies": {
     "@types/node": "^25.0.10",
