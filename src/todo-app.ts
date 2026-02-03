@@ -14,6 +14,28 @@ const RED = '\x1b[31m';
 const GREEN = '\x1b[32m';
 const RESET = '\x1b[0m';
 
+// Keyword to emoji mapping
+const KEYWORD_EMOJIS: Record<string, string> = {
+  study: '📚',
+  read: '📖',
+  work: '💼',
+  buy: '🛒',
+  cook: '👨‍🍳',
+  exercise: '🏃',
+  clean: '🧹',
+};
+
+// Add emoji to text based on keywords
+const addEmoji = (text: string): string => {
+  const lowerText = text.toLowerCase();
+  for (const [keyword, emoji] of Object.entries(KEYWORD_EMOJIS)) {
+    if (lowerText.includes(keyword)) {
+      return `${emoji} ${text}`;
+    }
+  }
+  return text;
+};
+
 // Create readline interface
 const rl = readline.createInterface({
   input: process.stdin,
@@ -49,7 +71,7 @@ const listTodos = (): void => {
   } else {
     console.log('Your Todos:');
     todos.forEach((todo: Todo) => {
-      console.log(`${todo.id}. ${todo.text}`);
+      console.log(`${todo.id}. ${addEmoji(todo.text)}`);
     });
     console.log('');
   }
