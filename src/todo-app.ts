@@ -37,7 +37,7 @@ const addTodo = (): void => {
 const listTodos = (): void => {
   console.clear();
   console.log('\n=== Todo List App ===');
-  console.log('Commands: add, list, remove, exit\n');
+  console.log('Commands: add, list, update, remove, exit\n');
 
   if (todos.length === 0) {
     console.log('No todos yet!\n');
@@ -74,6 +74,33 @@ const removeTodo = (): void => {
   });
 };
 
+// Update an existing todo
+const updateTodo = (): void => {
+  rl.question('Enter task ID to update: ', (input: string) => {
+    const id: number = parseInt(input);
+    const todo = todos.find((t: Todo) => t.id === id);
+
+    if (!todo) {
+      console.log('Task not found!\n');
+      showMenu();
+      return;
+    }
+
+    rl.question(
+      `Enter new text (current: "${todo.text}"): `,
+      (newText: string) => {
+        if (newText.trim() === '') {
+          console.log('Task cannot be empty!\n');
+        } else {
+          todo.text = newText.trim();
+          console.log('✓ Task updated successfully!\n');
+        }
+        showMenu();
+      }
+    );
+  });
+};
+
 // Handle command logic
 const handleCommand = (command: string): void => {
   switch (command.trim().toLowerCase()) {
@@ -85,6 +112,9 @@ const handleCommand = (command: string): void => {
       break;
     case 'remove':
       removeTodo();
+      break;
+    case 'update':
+      updateTodo();
       break;
     case 'exit':
       console.log('Goodbye!');
@@ -100,7 +130,7 @@ const handleCommand = (command: string): void => {
 const showMenu = (): void => {
   console.clear();
   console.log('\n=== Todo List App ===');
-  console.log('Commands: add, list, remove, exit\n');
+  console.log('Commands: add, list, update, remove, exit\n');
   process.stdout.write('> ');
   rl.question('', (command: string) => {
     handleCommand(command);
@@ -109,5 +139,5 @@ const showMenu = (): void => {
 
 // Start the app
 console.log('\n=== Todo List App ===');
-console.log('Commands: add, list, remove, exit\n');
+console.log('Commands: add, list, update, remove, exit\n');
 showMenu();
