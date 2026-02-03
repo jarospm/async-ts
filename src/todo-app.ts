@@ -9,6 +9,11 @@ type Todo = {
 // Store todos in memory (array)
 let todos: Todo[] = [];
 
+// ANSI color codes
+const RED = '\x1b[31m';
+const GREEN = '\x1b[32m';
+const RESET = '\x1b[0m';
+
 // Create readline interface
 const rl = readline.createInterface({
   input: process.stdin,
@@ -19,7 +24,7 @@ const rl = readline.createInterface({
 const addTodo = (): void => {
   rl.question('Enter task: ', (text: string) => {
     if (text.trim() === '') {
-      console.log('Task cannot be empty!\n');
+      console.log(`${RED}Task cannot be empty!${RESET}\n`);
     } else {
       const newTodo: Todo = {
         id: Date.now(),
@@ -27,9 +32,9 @@ const addTodo = (): void => {
       };
 
       todos.push(newTodo);
-      console.log('✓ Task added successfully!\n');
+      console.log(`${GREEN}✓ Task added successfully!${RESET}\n`);
     }
-    showMenu();
+    setTimeout(() => showMenu(), 1000);
   });
 };
 
@@ -49,8 +54,7 @@ const listTodos = (): void => {
     console.log('');
   }
 
-  process.stdout.write('> ');
-  rl.question('', (command: string) => {
+  rl.question('> ', (command: string) => {
     handleCommand(command);
   });
 };
@@ -64,13 +68,13 @@ const removeTodo = (): void => {
     const updatedTodos: Todo[] = todos.filter((todo: Todo) => todo.id !== id);
 
     if (updatedTodos.length === todos.length) {
-      console.log('Task not found!\n');
+      console.log(`${RED}Task not found!${RESET}\n`);
     } else {
       todos = updatedTodos;
-      console.log('Task removed successfully!\n');
+      console.log(`${GREEN}✓ Task removed successfully!${RESET}\n`);
     }
 
-    showMenu();
+    setTimeout(() => showMenu(), 1000);
   });
 };
 
@@ -81,8 +85,8 @@ const updateTodo = (): void => {
     const todo = todos.find((t: Todo) => t.id === id);
 
     if (!todo) {
-      console.log('Task not found!\n');
-      showMenu();
+      console.log(`${RED}Task not found!${RESET}\n`);
+      setTimeout(() => showMenu(), 1000);
       return;
     }
 
@@ -90,12 +94,12 @@ const updateTodo = (): void => {
       `Enter new text (current: "${todo.text}"): `,
       (newText: string) => {
         if (newText.trim() === '') {
-          console.log('Task cannot be empty!\n');
+          console.log(`${RED}Task cannot be empty!${RESET}\n`);
         } else {
           todo.text = newText.trim();
-          console.log('✓ Task updated successfully!\n');
+          console.log(`${GREEN}✓ Task updated successfully!${RESET}\n`);
         }
-        showMenu();
+        setTimeout(() => showMenu(), 1000);
       }
     );
   });
@@ -121,8 +125,8 @@ const handleCommand = (command: string): void => {
       rl.close();
       break;
     default:
-      console.log('Unknown command\n');
-      showMenu();
+      console.log(`${RED}Unknown command${RESET}\n`);
+      setTimeout(() => showMenu(), 1000);
   }
 };
 
@@ -131,8 +135,7 @@ const showMenu = (): void => {
   console.clear();
   console.log('\n=== Todo List App ===');
   console.log('Commands: add, list, update, remove, exit\n');
-  process.stdout.write('> ');
-  rl.question('', (command: string) => {
+  rl.question('> ', (command: string) => {
     handleCommand(command);
   });
 };
