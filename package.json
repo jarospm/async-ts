@@ -8,7 +8,8 @@
     "dev": "tsx src/index.ts",
     "cb": "tsx src/callbacks.ts",
     "types": "tsx src/types.ts",
-    "td": "tsx src/todo-app.ts"
+    "td": "tsx src/todo-app.ts",
+    "ch": "tsx src/challenges.ts"
   },
   "devDependencies": {
     "@types/node": "^25.0.10",
