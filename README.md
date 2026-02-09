@@ -16,6 +16,7 @@ npm run cb       # run src/callbacks.ts
 npm run types    # run src/types.ts
 npm run td       # run src/todo-app.ts
 npm run ch       # run src/challenges.ts
+npm run pr       # run src/promises.ts
 ```
 
 ## Contents
@@ -46,6 +47,21 @@ Interactive CLI todo list using Node.js readline:
 - **Colored feedback** — green for success, red for errors
 - **Auto-emoji** — adds emojis based on keywords (game → 🎮, study → 📚, gym → 💪, etc.)
 - **Async patterns** — callbacks with readline, setTimeout for message display
+
+### Promises (`src/promises.ts`)
+
+3 exercises covering promise fundamentals:
+
+- **Creating promises** — `new Promise`, `resolve`, `reject` with a coin flip
+- **Fetching from an API** — `fetch()` with `.then()` chaining, `response.ok` check, typed response (`AdviceSlip`)
+- **Combining promises** — chaining `flipCoin()` into `fetchAdvice()`, separate error handling per step
+
+Key concepts:
+
+- `resolve` → triggers `.then()`, `reject` → triggers `.catch()`
+- `.then()` chains transform values: `Response` → JSON → `string`
+- Returning a promise inside `.then()` makes the chain wait for it
+- `.catch()` at different levels handles different failure paths
 
 ### Challenges (`src/challenges.ts`)
 
