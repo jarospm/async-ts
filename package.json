@@ -9,7 +9,8 @@
     "cb": "tsx src/callbacks.ts",
     "types": "tsx src/types.ts",
     "td": "tsx src/todo-app.ts",
-    "ch": "tsx src/challenges.ts"
+    "ch": "tsx src/challenges.ts",
+    "pr": "tsx src/promises.ts"
   },
   "devDependencies": {
     "@types/node": "^25.0.10",
