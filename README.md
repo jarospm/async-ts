@@ -17,6 +17,7 @@ npm run types    # run src/types.ts
 npm run td       # run src/todo-app.ts
 npm run ch       # run src/challenges.ts
 npm run pr       # run src/promises.ts
+npm run aa       # run src/async-await.ts
 ```
 
 ## Contents
@@ -62,6 +63,20 @@ Key concepts:
 - `.then()` chains transform values: `Response` → JSON → `string`
 - Returning a promise inside `.then()` makes the chain wait for it
 - `.catch()` at different levels handles different failure paths
+
+### Async/Await (`src/async-await.ts`)
+
+Refactored promises exercises using `async/await`:
+
+- **Coin flip** — `await` a rejected promise throws, caught by `try/catch`
+- **Fetch advice** — arrow function with `await fetch()` + `await response.json()`, reads top to bottom
+- **Combined** — sequential `await` calls with nested `try/catch` for separate error paths
+
+Key concepts:
+
+- `await` pauses only its own `async` function, not the whole program
+- `await` on a rejected promise throws → use `try/catch` instead of `.catch()`
+- Without `await` between calls, async functions run in parallel
 
 ### Challenges (`src/challenges.ts`)
 
