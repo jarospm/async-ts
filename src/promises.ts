@@ -14,3 +14,27 @@ function flipCoin(): Promise<string> {
 flipCoin()
   .then((message) => console.log(message))
   .catch((error) => console.log(error));
+
+// Part 2: Fetching Data from an API — Advice Slip
+
+type AdviceSlip = {
+  slip: {
+    id: number;
+    advice: string;
+  };
+};
+
+function fetchAdvice(): Promise<string> {
+  return fetch("https://api.adviceslip.com/advice")
+    .then((response: Response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data: AdviceSlip) => data.slip.advice);
+}
+
+fetchAdvice()
+  .then((advice) => console.log("Advice:", advice))
+  .catch((error) => console.log("Failed to fetch advice:", error));
