@@ -56,7 +56,7 @@ printResult(false);
 // ===========================================
 
 console.log(
-  `\n${colors.cyan}=== 2. Interfaces and Type Aliases ===${colors.reset}\n`
+  `\n${colors.cyan}=== 2. Interfaces and Type Aliases ===${colors.reset}\n`,
 );
 
 // Exercise 1: basic interface defining an object shape
@@ -93,7 +93,7 @@ function printTeacherInfo(teacher: SchoolTeacher): void {
 }
 
 console.log(
-  `\n${colors.yellow}Exercise 2: SchoolTeacher (intersection type)${colors.reset}`
+  `\n${colors.yellow}Exercise 2: SchoolTeacher (intersection type)${colors.reset}`,
 );
 printTeacherInfo({
   name: 'John Smith',
@@ -145,7 +145,7 @@ function orderPizza(size: PizzaSize): void {
 }
 
 console.log(
-  `\n${colors.yellow}Exercise 2: PizzaSize (string enum)${colors.reset}`
+  `\n${colors.yellow}Exercise 2: PizzaSize (string enum)${colors.reset}`,
 );
 orderPizza(PizzaSize.Small);
 orderPizza(PizzaSize.Large);
@@ -172,7 +172,7 @@ function printRole(role: Role): void {
 }
 
 console.log(
-  `\n${colors.yellow}Exercise 3: Role (string enum with lookup)${colors.reset}`
+  `\n${colors.yellow}Exercise 3: Role (string enum with lookup)${colors.reset}`,
 );
 printRole(Role.Admin);
 printRole(Role.User);

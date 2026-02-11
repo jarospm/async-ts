@@ -69,7 +69,7 @@ const logUppercase: TextCallback = (result) => {
 };
 
 console.log(
-  `\n${colors.cyan}=== Task 4: Uppercase Callback ===${colors.reset}`
+  `\n${colors.cyan}=== Task 4: Uppercase Callback ===${colors.reset}`,
 );
 makeUppercase('hello world', logUppercase);
 
@@ -120,7 +120,7 @@ const logDownload: TextCallback = (message) => {
 };
 
 console.log(
-  `\n${colors.cyan}=== Task 7: Download Simulation ===${colors.reset}`
+  `\n${colors.cyan}=== Task 7: Download Simulation ===${colors.reset}`,
 );
 downloadData('https://example.com/data', logDownload);
 
@@ -128,7 +128,7 @@ downloadData('https://example.com/data', logDownload);
 
 const randomOutcome = (
   onSuccess: TextCallback,
-  onError: TextCallback
+  onError: TextCallback,
 ): void => {
   if (Math.random() > 0.5) {
     onSuccess('Operation succeeded!');
@@ -146,7 +146,7 @@ const handleError: TextCallback = (message) => {
 };
 
 console.log(
-  `\n${colors.cyan}=== Task 8: Success and Error Callback ===${colors.reset}`
+  `\n${colors.cyan}=== Task 8: Success and Error Callback ===${colors.reset}`,
 );
 randomOutcome(handleSuccess, handleError);
 
@@ -165,7 +165,7 @@ const mathOperation = (
   a: number,
   b: number,
   operation: Operation,
-  onResult: NumberCallback
+  onResult: NumberCallback,
 ): void => {
   const result = operations[operation](a, b);
   onResult(result);
@@ -176,7 +176,7 @@ const logResult: NumberCallback = (result) => {
 };
 
 console.log(
-  `\n${colors.cyan}=== Task 9: Math with Different Operations ===${colors.reset}`
+  `\n${colors.cyan}=== Task 9: Math with Different Operations ===${colors.reset}`,
 );
 mathOperation(10, 5, 'add', logResult);
 mathOperation(10, 5, 'subtract', logResult);
@@ -207,10 +207,10 @@ const step3 = (onComplete: VoidCallback): void => {
 };
 
 console.log(
-  `\n${colors.cyan}=== Task 10: Chained Callbacks ===${colors.reset}`
+  `\n${colors.cyan}=== Task 10: Chained Callbacks ===${colors.reset}`,
 );
 console.log(
-  `${colors.yellow}(Tasks 2, 5, 7 are still waiting in the background...)${colors.reset}\n`
+  `${colors.yellow}(Tasks 2, 5, 7 are still waiting in the background...)${colors.reset}\n`,
 );
 // Start step1, passing it a callback to run when step1 is done
 step1(
@@ -230,15 +230,15 @@ step1(
           // This won't run until step3 calls onComplete() after its 1s timer
           () => {
             console.log('  → All steps complete!\n');
-          }
+          },
         );
-      }
+      },
     );
-  }
+  },
 );
 
 console.log(
-  `${colors.cyan}-------------------------------------------${colors.reset}`
+  `${colors.cyan}-------------------------------------------${colors.reset}`,
 );
 console.log(`${colors.yellow}🔥 Welcome to Callback Hell! 🔥${colors.reset}`);
 console.log('');
@@ -252,5 +252,5 @@ console.log('    });');
 console.log('  });');
 console.log('');
 console.log(
-  `${colors.cyan}-------------------------------------------${colors.reset}`
+  `${colors.cyan}-------------------------------------------${colors.reset}`,
 );

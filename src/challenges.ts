@@ -3,7 +3,7 @@
 
 function prioritize(
   array: string[],
-  callback: (element: string) => boolean
+  callback: (element: string) => boolean,
 ): string[] {
   const truthy: string[] = [];
   const falsy: string[] = [];
@@ -27,17 +27,17 @@ const startsWithS = (str: string): boolean => {
 console.log(
   prioritize(
     ['curb', 'rickandmorty', 'seinfeld', 'sunny', 'friends'],
-    startsWithS
-  )
+    startsWithS,
+  ),
 );
-// should log: ["seinfeld", "sunny", "curb", "rickandmorty", "friends"]
+// Should log: ["seinfeld", "sunny", "curb", "rickandmorty", "friends"]
 
 // Challenge 14: countBy
 // Returns an object with counts of each return value from the callback
 
 function countBy(
   array: number[],
-  callback: (element: number) => string
+  callback: (element: number) => string,
 ): Record<string, number> {
   const counts: Record<string, number> = {};
 
@@ -54,16 +54,16 @@ console.log(
   countBy([1, 2, 3, 4, 5], function (num) {
     if (num % 2 === 0) return 'even';
     else return 'odd';
-  })
+  }),
 );
-// should log: { odd: 3, even: 2 }
+// Should log: { odd: 3, even: 2 }
 
 // Challenge 15: groupBy
 // Returns an object with arrays of elements grouped by callback return value
 
 function groupBy<T>(
   array: T[],
-  callback: (element: T) => number
+  callback: (element: T) => number,
 ): Record<number, T[]> {
   const groups: Record<number, T[]> = {};
 
@@ -80,14 +80,14 @@ function groupBy<T>(
 const decimals = [1.3, 2.1, 2.4];
 const floored = (num: number): number => Math.floor(num);
 console.log(groupBy(decimals, floored));
-// should log: { 1: [1.3], 2: [2.1, 2.4] }
+// Should log: { 1: [1.3], 2: [2.1, 2.4] }
 
 // Challenge 16: goodKeys
 // Returns keys whose values pass the callback
 
 function goodKeys(
   obj: Record<string, string>,
-  callback: (value: string) => boolean
+  callback: (value: string) => boolean,
 ): string[] {
   const result: string[] = [];
 
@@ -110,7 +110,7 @@ const startsWithBird = (str: string): boolean => {
   return str.slice(0, 4).toLowerCase() === 'bird';
 };
 console.log(goodKeys(sunny, startsWithBird));
-// should log: ['charlie', 'dee']
+// Should log: ['charlie', 'dee']
 
 // Challenge 17: commutative
 // Returns true if f(g(x)) === g(f(x))
@@ -118,7 +118,7 @@ console.log(goodKeys(sunny, startsWithBird));
 function commutative(
   fn1: (n: number) => number,
   fn2: (n: number) => number,
-  value: number
+  value: number,
 ): boolean {
   return fn1(fn2(value)) === fn2(fn1(value));
 }
@@ -127,16 +127,16 @@ function commutative(
 const multBy3 = (n: number) => n * 3;
 const divBy4 = (n: number) => n / 4;
 const subtract5 = (n: number) => n - 5;
-console.log(commutative(multBy3, divBy4, 11)); // should log: true
-console.log(commutative(multBy3, subtract5, 10)); // should log: false
-console.log(commutative(divBy4, subtract5, 48)); // should log: false
+console.log(commutative(multBy3, divBy4, 11)); // Should log: true
+console.log(commutative(multBy3, subtract5, 10)); // Should log: false
+console.log(commutative(divBy4, subtract5, 48)); // Should log: false
 
 // Challenge 18: objFilter
 // Returns object with key-value pairs where callback(key) === value
 
 function objFilter(
   obj: Record<number, number>,
-  callback: (key: number) => number
+  callback: (key: number) => number,
 ): Record<number, number> {
   const result: Record<number, number> = {};
 
@@ -156,4 +156,4 @@ startingObj[2] = 1;
 startingObj[12] = 4;
 const half = (n: number) => n / 2;
 console.log(objFilter(startingObj, half));
-// should log: { 2: 1, 6: 3 }
+// Should log: { 2: 1, 6: 3 }

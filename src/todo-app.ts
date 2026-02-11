@@ -122,7 +122,7 @@ const updateTodo = (): void => {
           console.log(`${GREEN}✓ Task updated successfully!${RESET}\n`);
         }
         setTimeout(() => showMenu(), 1000);
-      }
+      },
     );
   });
 };

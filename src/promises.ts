@@ -47,7 +47,7 @@ flipCoin()
     return fetchAdvice()
       .then((advice) => console.log('Winner advice:', advice))
       .catch((error) =>
-        console.log('You won, but advice fetch failed:', error)
+        console.log('You won, but advice fetch failed:', error),
       );
   })
   .catch((reason) => console.log('Coin flip lost:', reason));
