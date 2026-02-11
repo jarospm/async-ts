@@ -12,6 +12,7 @@
     "ch": "tsx src/challenges.ts",
     "pr": "tsx src/promises.ts",
     "aa": "tsx src/async-await.ts",
+    "el": "tsx src/es-lint.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
