@@ -20,6 +20,15 @@ npm run pr       # run src/promises.ts
 npm run aa       # run src/async-await.ts
 ```
 
+## Linting
+
+ESLint with TypeScript support (`eslint.config.ts`):
+
+```bash
+npm run lint     # check for errors
+npm run lint:fix # auto-fix what it can
+```
+
 ## Contents
 
 ### Callbacks (`src/callbacks.ts`)
